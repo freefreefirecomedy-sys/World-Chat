@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World-Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf5ee;
+      margin: 0;
+      padding: 20px;
+    }
+    .app {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      padding: 18px;
+      border-radius: 16px;
+    }
+    h2 { color: #128c50; }
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 12px;
+      overflow-wrap: anywhere;
+    }
+    input {
+      box-sizing: border-box;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    button {
+      padding: 12px;
+      width: 100%;
+      background: #128c50;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h2>🌍 World-Chat</h2>
+    <div id="messages"></div>
+    <input id="name" placeholder="Apna naam likho">
+    <input id="message" placeholder="Message likho">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  <script>
+    function sendMessage() {
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !message) {
+        alert('Naam aur message likho!');
+        return;
+      }
+      const item = document.createElement('p');
+      item.textContent = name + ': ' + message;
+      document.getElementById('messages').appendChild(item);
+      document.getElementById('message').value = '';
+    }
+  </script>
+</body>
+</html>
